@@ -12,3 +12,21 @@ Push everything to your Github Repo and send me the link.
 The is the folder structure
 
 ![image](https://user-images.githubusercontent.com/101609196/168199934-a0b09608-0cb3-4b64-9b61-2e0186fa1d58.png)
+
+The terraform project contains 3 modules, vpc, launchconfig, and autoscaling. 
+It also uses a S3 backend for the state file.
+
+The vpc module have 2 input variables, and 8 output variables 
+>in: prefix					(string)
+>in: ipblock				(string)
+>>out: vpc_id				(string)
+>>out: prefix				(string)
+>>out: privatesubnet1-3		(string)
+>>out: publicsubnet1-3		(string)
+
+The launchconfig module has 1 input (prefix) and 1 output (launch_config_name)
+
+The autoscaling module has 3 input and no output variables:
+>in: prefix					(string)
+>in: launch_config_name		(string)
+>in: subnet_ids				list(string)
