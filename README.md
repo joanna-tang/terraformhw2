@@ -17,12 +17,14 @@ The terraform project contains 3 modules, vpc, launchconfig, and autoscaling.
 It also uses a S3 backend for the state file.
 
 The vpc module have 2 input variables, and 8 output variables 
----------------------------------
+
 |in:				| datatype	|
+---------------------------------
 |prefix				|(string)	|
 |ipblock			|(string)	|
+
+|out:				| datatype	|
 ---------------------------------
-|out:				|			|
 |vpc_id				|(string)	|
 |prefix				|(string)	|
 |privatesubnet1-3	|(string)	|
@@ -31,9 +33,8 @@ The vpc module have 2 input variables, and 8 output variables
 The launchconfig module has 1 input (prefix) and 1 output (launch_config_name)
 
 The autoscaling module has 3 input and no output variables:
----------------------------------
 |in:				| datatype	|
+---------------------------------
 |prefix				|(string)	|
 |launch_config_name	|(string)	|
 |subnet_ids			|list(string)|
----------------------------------
