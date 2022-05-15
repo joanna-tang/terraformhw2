@@ -13,11 +13,12 @@ terraform {
       version = "~> 3.0"
     }
   }
-  #backend "s3" {
-  # bucket = "jtang-nclouds-academy-2022"
-  # key    = "hw2.tfstate"
-  # region = "us-west-1"
-  #}
+  
+  backend "s3" {
+   bucket = "jtang-nclouds-academy-2022"
+   key    = "terraform/hw2.tfstate"
+   region = "us-west-1"
+  }
 }
 
 provider "aws" {
