@@ -43,5 +43,4 @@ It also uses a S3 backend for the state file.
 
 To run this project, please make sure you have S3 access 
 > terraform init
-
 > terraform apply
