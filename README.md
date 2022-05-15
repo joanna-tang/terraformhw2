@@ -39,7 +39,8 @@ It also uses a S3 backend for the state file.
 | subnet_ids			| list(string)|
 
 
-To run this project, please make sure you have S3 access 
+To run this project, please make sure you have S3 / dynamoDB access. 
+It might be necessary to change the backend section in resources.tf.
 > terraform init
 > 
 > terraform apply
