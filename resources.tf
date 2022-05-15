@@ -1,4 +1,3 @@
-
 variable "awsprofile" {
   type = string
   default = "jtang-nclouds"
@@ -13,12 +12,13 @@ terraform {
       version = "~> 3.0"
     }
   }
-  
-  #backend "s3" {
-  #  bucket = "jtang-nclouds-academy-2022"
-  #  key    = "terraform/hw2.tfstate"
-  #  region = "us-west-1"
-  #}
+  backend "s3" {
+    bucket = "jtang-nclouds-academy-2022"
+    key    = "terraform/hw2.tfstate"
+    region = "us-west-1"
+    dynamodb_table = "jtang-tfstate"
+    profile = "jtang-nclouds"
+  }
 }
 
 provider "aws" {
