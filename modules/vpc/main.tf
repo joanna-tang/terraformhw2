@@ -3,7 +3,7 @@
 #  VPC
 ########################################################################
 resource "aws_vpc" "main" {
-  cidr_block = "${var.ipblock}.0.0/16"
+  cidr_block = var.ipblock #"${var.ipblock}.0.0/16"
   tags = {
     Name = "${var.prefix}-vpc"
   }
@@ -24,7 +24,7 @@ resource "aws_internet_gateway" "igw" {
 ########################################################################
 resource "aws_subnet" "publicsubnet1" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "${var.ipblock}.1.0/24"
+  cidr_block = cidrsubnet(var.ipblock, 4, 1) #"${var.ipblock}.1.0/24"
 
   tags = {
     Name = "${var.prefix}-publicsubnet1"
@@ -33,7 +33,7 @@ resource "aws_subnet" "publicsubnet1" {
 
 resource "aws_subnet" "publicsubnet2" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "${var.ipblock}.2.0/24"
+  cidr_block = cidrsubnet(var.ipblock, 4, 2)
 
   tags = {
     Name = "${var.prefix}-publicsubnet2"
@@ -41,7 +41,7 @@ resource "aws_subnet" "publicsubnet2" {
 }
 resource "aws_subnet" "publicsubnet3" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "${var.ipblock}.3.0/24"
+  cidr_block = cidrsubnet(var.ipblock, 4, 3)
 
   tags = {
     Name = "${var.prefix}-publicsubnet3"
@@ -53,7 +53,7 @@ resource "aws_subnet" "publicsubnet3" {
 ########################################################################
 resource "aws_subnet" "privatesubnet1" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "${var.ipblock}.51.0/24"
+  cidr_block = cidrsubnet(var.ipblock, 4, 4)
 
   tags = {
     Name = "${var.prefix}-privatesubnet1"
@@ -62,7 +62,7 @@ resource "aws_subnet" "privatesubnet1" {
 
 resource "aws_subnet" "privatesubnet2" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "${var.ipblock}.52.0/24"
+  cidr_block = cidrsubnet(var.ipblock, 4, 5)
 
   tags = {
     Name = "${var.prefix}-privatesubnet2"
@@ -70,7 +70,7 @@ resource "aws_subnet" "privatesubnet2" {
 }
 resource "aws_subnet" "privatesubnet3" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "${var.ipblock}.53.0/24"
+  cidr_block = cidrsubnet(var.ipblock, 4, 6)
 
   tags = {
     Name = "${var.prefix}-privatesubnet3"
