@@ -1,6 +1,6 @@
 variable "prefix" {
   type = string
-  default = "jtang-terraform"
+  default = "jtang-hw2"
 }
 
 variable "ipblock" {
