@@ -44,3 +44,6 @@ It might be necessary to change the backend section in resources.tf.
 > terraform init
 > 
 > terraform apply
+
+To remove all the changes, use this command:
+> terraform destroy
